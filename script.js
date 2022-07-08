@@ -54,18 +54,19 @@ function addItem(event) {
 
 
   let individual_task = document.createElement("ol");
-  individual_task.innerHTML = `task ${todo_list.length}`
+  individual_task.innerHTML = `Task ${todo_list.length}`
   let task_name = document.createElement("li");
-  task_name.innerHTML = name;
+  task_name.innerHTML = `Name: ${name}`;
   let task_description = document.createElement("li");
-  task_description.innerHTML = description;
+  task_description.innerHTML = `Description: ${description}`;
   let task_startDate = document.createElement("li");
-  task_startDate.innerHTML = startDate;
+  task_startDate.innerHTML = `Start Date: ${startDate}`;
   let task_duration = document.createElement("li");
-  task_duration.innerHTML = duration;
+  task_duration.innerHTML = `Duration: ${duration} hours`;
   let task_reminder = document.createElement("li");
-  task_reminder.innerHTML = reminder;
+  task_reminder.innerHTML = `Reminder: ${reminder} hours before finishing time`;
   let task_deleteButton = document.createElement("button");
+  task_deleteButton.className = "btn btn-secondary";
   task_deleteButton.innerHTML = "Delete";
 
   individual_task.appendChild(task_name);
@@ -80,4 +81,8 @@ function addItem(event) {
 
 function deleteItem(i) {
   let todo_list = todo_list.filter((item, index) => index != i);
+}
+
+function editItem(i) {
+  let findItemToEdit = todo_list.find((item, index) => index === i);
 }
